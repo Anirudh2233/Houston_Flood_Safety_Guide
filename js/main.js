@@ -151,66 +151,7 @@
   });
   loadChecklist();
 
-  // ─── Animated Counters ────────────────────────────────
-  function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.getAttribute('data-target'));
-            let current = 0;
-            const duration = 1500;
-            const step = target / (duration / 16);
-            function count() {
-              current += step;
-              if (current >= target) {
-                el.textContent = target;
-              } else {
-                el.textContent = Math.floor(current);
-                requestAnimationFrame(count);
-              }
-            }
-            count();
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    counters.forEach(function (c) { observer.observe(c); });
-  }
-  animateCounters();
 
-  // ─── Chart.js — Flood Kit Breakdown ───────────────────
-  const kitChartEl = document.getElementById('kitChart');
-  if (kitChartEl && typeof Chart !== 'undefined') {
-    new Chart(kitChartEl, {
-      type: 'doughnut',
-      data: {
-        labels: ['Food & Water', 'First Aid', 'Communication', 'Documents', 'Disability', 'Pet Supplies', 'Shelter Extras', 'Car Kit'],
-        datasets: [{
-          data: [3, 4, 3, 3, 4, 4, 3, 4],
-          backgroundColor: [
-            '#00D4B4', '#FF8C00', '#3B82F6', '#8B5CF6',
-            '#EC4899', '#F59E0B', '#10B981', '#6366F1'
-          ],
-          borderColor: '#0A1628',
-          borderWidth: 3,
-        }],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: { color: '#94A3B8', font: { family: 'Inter', size: 13 }, padding: 16 },
-          },
-        },
-      },
-    });
-  }
 
   // ─── Leaflet Map ──────────────────────────────────────
   const mapEl = document.getElementById('floodMap');
