@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -63,8 +62,21 @@
             <p>Use the <strong><a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener">FEMA Flood Map</a></strong> or <strong><a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="noopener">National Risk Index</a></strong> to check your flood risk based on your location.</p>
           </div>
           <div class="map-col" data-aos="fade-left">
-            <div id="floodMap" class="flood-map" role="img" aria-label="Interactive map of Houston showing major flood-prone areas"></div>
-            <p class="map-caption"><strong>Houston Flood-Prone Areas</strong><br><small>Data from FEMA Flood Map Service Center. Base map: © OpenStreetMap contributors © CARTO</small></p>
+            <div class="flood-zones-card glass-card">
+              <h3>Houston Flood-Prone Areas</h3>
+              <ul class="flood-zone-list">
+                <li>Buffalo Bayou</li>
+                <li>Brays Bayou</li>
+                <li>White Oak Bayou</li>
+                <li>Greens Bayou</li>
+                <li>Clear Creek</li>
+                <li>Addicks Reservoir</li>
+                <li>Barker Reservoir</li>
+                <li>San Jacinto River</li>
+              </ul>
+              <a href="https://msc.fema.gov/portal/search?AddressQuery=houston" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View FEMA Flood Map for Houston</a>
+              <p class="map-citation">Source: <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener">FEMA Flood Map Service Center</a></p>
+            </div>
           </div>
         </div>
       </div>
@@ -336,29 +348,89 @@
       <div class="container">
         <h2 class="section-title" data-aos="fade-up">Resources</h2>
         <div class="resources-grid" data-aos="fade-up">
-          <a href="https://www.ready.gov/floods" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
-            <strong>Floods</strong><br><small>Ready.gov</small>
-          </a>
-          <a href="https://www.ready.gov/build-a-kit" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
-            <strong>Build A Kit</strong><br><small>Ready.gov</small>
-          </a>
-          <a href="https://www.ready.gov/evacuation" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
-            <strong>Evacuation</strong><br><small>Ready.gov</small>
-          </a>
-          <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
-            <strong>FEMA Flood Map Service Center</strong><br><small>FEMA.gov</small>
-          </a>
-          <a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
-            <strong>National Risk Index</strong><br><small>FEMA.gov</small>
-          </a>
+          <!-- 1. EPA -->
           <a href="https://www.epa.gov/green-infrastructure" target="_blank" rel="noopener" class="resource-link glass-card resource-epa">
             <strong>Mitigate Flooding</strong><br><small>US EPA</small>
           </a>
+          <!-- 2. Red Cross -->
+          <a href="https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/flood.html" target="_blank" rel="noopener" class="resource-link glass-card resource-redcross">
+            <strong>Flood-Preparedness-Checklist-R2</strong><br><small>Red Cross</small>
+          </a>
+          <!-- 3. FEMA -->
+          <a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
+            <strong>National Risk Index for Natural Hazards</strong><br><small>FEMA.gov</small>
+          </a>
+          <!-- 4. Ready.gov -->
+          <a href="https://www.ready.gov/" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Resources</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 5. Ready Houston -->
+          <a href="https://www.readyharris.org/" target="_blank" rel="noopener" class="resource-link glass-card resource-harris">
+            <strong>Here are some resources to survive Houston's floods</strong><br><small>Ready Harris</small>
+          </a>
+          <!-- 6. Ready.gov -->
+          <a href="https://www.ready.gov/floods" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>BE PREPARED FOR A FLOOD</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 7. Ready.gov -->
+          <a href="https://www.ready.gov/floods" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Floods</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 8. Texas STEAR -->
+          <a href="https://www.211texas.org/stear/" target="_blank" rel="noopener" class="resource-link glass-card resource-texas">
+            <strong>STEAR</strong><br><small>State of Texas Emergency Assistance Registry</small>
+          </a>
+          <!-- 9. Ready.gov -->
+          <a href="https://www.ready.gov/plan" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Make a Plan</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 10. FEMA -->
+          <a href="https://www.fema.gov/emergency-managers/risk-management/flood" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
+            <strong>Floods</strong><br><small>FEMA.gov</small>
+          </a>
+          <!-- 11. FEMA -->
+          <a href="https://www.fema.gov/sites/default/files/documents/fema_hm-know-your-alerts-and-warnings_english.pdf" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
+            <strong>Know Your Alerts and Warnings</strong><br><small>FEMA.gov (PDF)</small>
+          </a>
+          <!-- 12. Ready.gov -->
+          <a href="https://www.ready.gov/evacuation" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Evacuation</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 13. Ready.gov -->
+          <a href="https://www.ready.gov/protective-actions" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Protective Actions</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 14. Ready.gov -->
+          <a href="https://www.ready.gov/sites/default/files/2021-02/ready_checklist.pdf" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Ready Emergency Supply List</strong><br><small>Ready.gov (PDF)</small>
+          </a>
+          <!-- 15. Ready.gov -->
+          <a href="https://www.ready.gov/kit" target="_blank" rel="noopener" class="resource-link glass-card resource-ready">
+            <strong>Build A Kit</strong><br><small>Ready.gov</small>
+          </a>
+          <!-- 16. Texas -->
+          <a href="https://www.txready.org/" target="_blank" rel="noopener" class="resource-link glass-card resource-texas">
+            <strong>TXReady Resources SupplyChecklist</strong><br><small>TXReady</small>
+          </a>
+          <!-- 17. FEMA -->
+          <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
+            <strong>FEMA Flood Map Service Center</strong><br><small>FEMA.gov</small>
+          </a>
+          <!-- 18. FEMA (duplicate of 3) -->
+          <a href="https://www.fema.gov/flood-maps/products-tools/national-risk-index" target="_blank" rel="noopener" class="resource-link glass-card resource-fema">
+            <strong>National Risk Index for Natural Hazards</strong><br><small>FEMA.gov</small>
+          </a>
+          <!-- 19. H-GAC -->
           <a href="https://www.h-gac.com/disaster-recovery" target="_blank" rel="noopener" class="resource-link glass-card resource-hgac">
             <strong>Disaster Recovery Funding</strong><br><small>Houston-Galveston Area Council (H-GAC)</small>
           </a>
-          <a href="https://www.readyharris.org" target="_blank" rel="noopener" class="resource-link glass-card resource-harris">
+          <!-- 20. Ready Harris -->
+          <a href="https://www.readyharris.org/" target="_blank" rel="noopener" class="resource-link glass-card resource-harris">
             <strong>Ready Harris</strong><br><small>Harris County Emergency Management</small>
+          </a>
+          <!-- 21. HC Evacuation App -->
+          <a href="https://www.readyharris.org/Go/Evacuation" target="_blank" rel="noopener" class="resource-link glass-card resource-harris">
+            <strong>HC Evacuation App</strong><br><small>Harris County</small>
           </a>
         </div>
       </div>
@@ -391,7 +463,6 @@
     </div>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -153,42 +153,6 @@
 
 
 
-  // ─── Leaflet Map ──────────────────────────────────────
-  const mapEl = document.getElementById('floodMap');
-  if (mapEl && typeof L !== 'undefined') {
-    const map = L.map('floodMap', {
-      center: [29.7604, -95.3698],
-      zoom: 10,
-      scrollWheelZoom: false,
-    });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors © CARTO',
-      maxZoom: 18,
-    }).addTo(map);
-
-    // Highlight some flood-prone areas
-    var floodZones = [
-      { name: 'Buffalo Bayou', lat: 29.7604, lng: -95.3698 },
-      { name: 'Brays Bayou', lat: 29.6850, lng: -95.4100 },
-      { name: 'White Oak Bayou', lat: 29.7900, lng: -95.3900 },
-      { name: 'Greens Bayou', lat: 29.8700, lng: -95.2600 },
-      { name: 'Clear Creek', lat: 29.5800, lng: -95.1300 },
-      { name: 'Addicks Reservoir', lat: 29.7800, lng: -95.6300 },
-      { name: 'Barker Reservoir', lat: 29.7200, lng: -95.6800 },
-      { name: 'San Jacinto River', lat: 29.8500, lng: -95.0800 },
-    ];
-
-    floodZones.forEach(function (z) {
-      L.circle([z.lat, z.lng], {
-        radius: 3000,
-        color: '#00D4B4',
-        fillColor: '#00D4B4',
-        fillOpacity: 0.15,
-        weight: 1,
-      }).addTo(map).bindPopup('<strong>' + z.name + '</strong><br>Flood-prone area');
-    });
-  }
-
   // ─── Quiz ─────────────────────────────────────────────
   var quizData = [
     {
